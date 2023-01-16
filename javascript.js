@@ -13,7 +13,6 @@ function createGrid(rows, columns) {
       const column = document.createElement('div');
       column.classList.add('column');
       column.setAttribute('id', 'Row' + i + '-Column' + y);
-      // column.textContent = i + ',' + y;
       row.appendChild(column);
     }
     container.appendChild(row);
@@ -26,6 +25,7 @@ function createGrid(rows, columns) {
 function userProvideGridRowsColumns() {
   const rows = prompt('How Many Rows Would You Like?');
   const columns = prompt('How Many Columns Would You Like?');
+  container.textContent = ''; // clears the contents of the container
   createGrid(rows, columns);
 }
 
