@@ -1,5 +1,5 @@
 /**
- * Creates a grid of rows and columns
+ * Creates a grid of rows and columns.
  * @param {int} rows How many rows to create.
  * @param {int} columns How many columns to create.
  */
@@ -20,4 +20,16 @@ function createGrid(rows, columns) {
   }
 }
 
-createGrid(50, 50);
+/**
+ * Prompts user for how many rows and columns the grid should contain.
+ */
+function userProvideGridRowsColumns() {
+  const rows = prompt('How Many Rows Would You Like?');
+  const columns = prompt('How Many Columns Would You Like?');
+  createGrid(rows, columns);
+}
+
+
+const button = document.querySelector('#button');
+button.addEventListener('click', userProvideGridRowsColumns);
+
