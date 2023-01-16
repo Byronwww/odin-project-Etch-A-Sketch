@@ -22,7 +22,7 @@ function createGrid(rows, columns) {
 /**
  * Prompts user for how many rows and columns the grid should contain.
  */
-function userProvideGridRowsColumns() {
+function userSetGridRowsColumns() {
   const rows = prompt('How Many Rows Would You Like?');
   const columns = prompt('How Many Columns Would You Like?');
   container.textContent = ''; // clears the contents of the container
@@ -31,5 +31,5 @@ function userProvideGridRowsColumns() {
 
 
 const button = document.querySelector('#button');
-button.addEventListener('click', userProvideGridRowsColumns);
+button.addEventListener('click', userSetGridRowsColumns);
 
