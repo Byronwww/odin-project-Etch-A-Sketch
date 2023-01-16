@@ -1,6 +1,27 @@
-.container{
-    background-color : blue;
-    font-size:50px;
-    border-color: black;
-    border-width: 1px;
+.container{      
+    display: flex;    
+    flex-direction: column;   
+    margin: auto; 
+    height:500px;
+    width:500px;
+    border: 0.1px solid red;
 }
+
+.row {        
+    display: flex;    
+    flex: 1;     
+    flex-direction: row;        
+    border: 0.1px solid blue;
+  }
+  
+.column {            
+    display: flex;
+    flex: 1;    
+    border: 0.1px solid black;
+  }
+
+.column:hover{
+    background-color: aqua;
+}
+
+  
