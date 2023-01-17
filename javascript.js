@@ -46,7 +46,29 @@ document.addEventListener('mouseover', function(e) {
   currentSquare = e.target;
   console.log(currentSquareString);
   if (currentSquareString == 'column' ) {
-    currentSquare.style.backgroundColor = 'red';
+    currentSquare.style.backgroundColor = returnRGBColor();
+  }
+
+  /**
+   * Provides a random RGB color value in the format of rgb(x,y,z)
+   * @return {string} a random color value in hexedecimal format
+   */
+  function returnRGBColor() {
+    const r = random256();
+    const g = random256();
+    const b = random256();
+    const returnString = 'rgb('+ r + ','+ g + ', ' + b + ')';
+    console.log(returnString);
+    return returnString;
+  }
+
+  /**
+   * Provides a random number between 0 and 256
+   * @return {int} a random number between 0 and 256
+   */
+  function random256() {
+    const number = Math.floor(Math.random() * 257);
+    return number;
   }
 });
 
