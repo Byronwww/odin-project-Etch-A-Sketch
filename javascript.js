@@ -1,3 +1,8 @@
+// creates the initial grid on page load
+const startRows = 10;
+const startColumns = 10;
+createGrid(startRows, startColumns);
+
 /**
  * Creates a grid of rows and columns.
  * @param {int} rows How many rows to create.
@@ -33,8 +38,6 @@ function userSetGridSize() {
   container.textContent = ''; // clears the contents of the container
   createGrid(rows, columns);
 }
-
-createGrid(10, 10); // creates the initial grid on page load
 
 // create grid button functionality
 const button = document.querySelector('#buttonCreateGrid');
