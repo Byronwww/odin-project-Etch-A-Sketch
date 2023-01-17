@@ -48,7 +48,6 @@ buttonCreateGrid.addEventListener('click', userSetGridSize);
 document.addEventListener('mouseover', function(e) {
   const currentSquareString = String(e.target.className);
   currentSquare = e.target;
-  console.log(currentSquareString);
   if (currentSquareString == 'column' ) {
     currentSquare.style.backgroundColor = returnRGBColor();
   }
@@ -62,7 +61,6 @@ document.addEventListener('mouseover', function(e) {
     const g = random256();
     const b = random256();
     const returnString = 'rgb('+ r + ','+ g + ', ' + b + ')';
-    console.log(returnString);
     return returnString;
   }
 
