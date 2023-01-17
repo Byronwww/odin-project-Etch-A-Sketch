@@ -14,7 +14,7 @@ function createGrid(rows, columns) {
     const row = document.createElement('div');
     row.classList.add('row');
     row.setAttribute('id', 'Row' + i);
-    for (y=0; y<=columns; y++) {
+    for (y = 0; y <= columns; y++) {
       const column = document.createElement('div');
       column.classList.add('column');
       column.setAttribute('id', 'Row' + i + '-Column' + y);
