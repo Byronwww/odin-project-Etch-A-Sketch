@@ -9,12 +9,12 @@ createGrid(startRows, startColumns);
  * @param {int} columns How many columns to create.
  */
 function createGrid(rows, columns) {
-  for (i = 0; i <= rows; i++) {
+  for (i = 0; i < rows; i++) {
     const container = document.querySelector('#container');
     const row = document.createElement('div');
     row.classList.add('row');
     row.setAttribute('id', 'Row' + i);
-    for (y = 0; y <= columns; y++) {
+    for (y = 0; y < columns; y++) {
       const column = document.createElement('div');
       column.classList.add('column');
       column.setAttribute('id', 'Row' + i + '-Column' + y);
@@ -40,8 +40,9 @@ function userSetGridSize() {
 }
 
 // create grid button functionality
-const button = document.querySelector('#buttonCreateGrid');
-button.addEventListener('click', userSetGridSize);
+const buttonCreateGrid = document.querySelector('#buttonCreateGrid');
+buttonCreateGrid.addEventListener('click', userSetGridSize);
+
 
 // color grid square under mouse functionality
 document.addEventListener('mouseover', function(e) {
@@ -74,4 +75,16 @@ document.addEventListener('mouseover', function(e) {
     return number;
   }
 });
+
+
+// Clear Grid functionality
+function clearGrid() {
+  const allSquares = document.getElementsByClassName('column');
+  for(i = 0; i < allSquares.length; i++){
+    console.log('clearGridTest ' + i);
+  }  
+}
+
+const buttonClearGrid = document.querySelector('#buttonClearGrid');
+buttonClearGrid.addEventListener('click', clearGrid);
 
