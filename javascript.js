@@ -37,7 +37,7 @@ function userSetGridSize() {
 createGrid(10, 10); // creates the initial grid on page load
 
 // create grid button functionality
-const button = document.querySelector('#button');
+const button = document.querySelector('#buttonCreateGrid');
 button.addEventListener('click', userSetGridSize);
 
 // color grid square under mouse functionality
