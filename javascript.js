@@ -83,7 +83,7 @@ document.addEventListener('mouseover', function(e) {
 function clearGrid() {
   const allSquares = document.getElementsByClassName('column');
   for (i = 0; i < allSquares.length; i++) {
-    console.log('clearGridTest ' + i);
+    allSquares[i].style.backgroundColor = 'rgb(256,256,256)';
   }
 }
 
