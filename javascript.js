@@ -33,7 +33,7 @@ function userSetGridSize() {
   if (rows > 100) {
     alert('Maximum size is 100 x 100');
     return;
-  } else {}
+  }
   const columns = rows;
   container.textContent = ''; // clears the contents of the container
   createGrid(rows, columns);
