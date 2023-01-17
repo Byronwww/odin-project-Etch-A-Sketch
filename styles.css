@@ -4,14 +4,12 @@
     margin: auto; 
     height:500px;
     width:500px;
-    border: 0.1px solid red;
 }
 
 .row {        
     display: flex;    
     flex: 1;     
-    flex-direction: row;        
-    border: 0.1px solid blue;
+    flex-direction: row;
   }
   
 .column {            
@@ -20,8 +18,6 @@
     border: 0.1px solid black;
   }
 
-.column:hover{
-    background-color: aqua;
-}
+
 
   

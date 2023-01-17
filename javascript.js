@@ -29,7 +29,19 @@ function userSetGridRowsColumns() {
   createGrid(rows, columns);
 }
 
+createGrid(10, 10); // creates the initial grid on page load
 
+// create grid button functionality
 const button = document.querySelector('#button');
 button.addEventListener('click', userSetGridRowsColumns);
+
+// color grid square under mouse functionality
+document.addEventListener('mouseover', function(e) {
+  const currentSquareString = String(e.target.className);
+  currentSquare = e.target;
+  console.log(currentSquareString);
+  if (currentSquareString == 'column' ) {
+    currentSquare.style.backgroundColor = 'red';
+  }
+});
 
