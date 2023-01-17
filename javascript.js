@@ -22,9 +22,9 @@ function createGrid(rows, columns) {
 /**
  * Prompts user for how many rows and columns the grid should contain.
  */
-function userSetGridRowsColumns() {
-  const rows = prompt('How Many Rows Would You Like?');
-  const columns = prompt('How Many Columns Would You Like?');
+function userSetGridSize() {
+  const rows = prompt('How large would you like your grid to be?');
+  const columns = rows;
   container.textContent = ''; // clears the contents of the container
   createGrid(rows, columns);
 }
@@ -33,7 +33,7 @@ createGrid(10, 10); // creates the initial grid on page load
 
 // create grid button functionality
 const button = document.querySelector('#button');
-button.addEventListener('click', userSetGridRowsColumns);
+button.addEventListener('click', userSetGridSize);
 
 // color grid square under mouse functionality
 document.addEventListener('mouseover', function(e) {
