@@ -23,7 +23,12 @@ function createGrid(rows, columns) {
  * Prompts user for how many rows and columns the grid should contain.
  */
 function userSetGridSize() {
-  const rows = prompt('How large would you like your grid to be?');
+  const rows = prompt('How large would you like your grid to be? ' +
+  '(Maximum size is 100 x 100)');
+  if (rows > 100) {
+    alert('Maximum size is 100 x 100');
+    return;
+  } else {}
   const columns = rows;
   container.textContent = ''; // clears the contents of the container
   createGrid(rows, columns);
