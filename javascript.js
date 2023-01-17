@@ -63,8 +63,8 @@ document.addEventListener('mouseover', function(e) {
   }
 
   /**
-   * Provides a random number between 0 and 256
-   * @return {int} a random number between 0 and 256
+   * Provides a random number between 1 and 256
+   * @return {int} a random number between 1 and 256
    */
   function random256() {
     const number = Math.floor(Math.random() * 257);
