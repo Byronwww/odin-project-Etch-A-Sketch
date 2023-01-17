@@ -77,12 +77,14 @@ document.addEventListener('mouseover', function(e) {
 });
 
 
-// Clear Grid functionality
+/**
+ * Clear Grid functionality
+ * */
 function clearGrid() {
   const allSquares = document.getElementsByClassName('column');
-  for(i = 0; i < allSquares.length; i++){
+  for (i = 0; i < allSquares.length; i++) {
     console.log('clearGridTest ' + i);
-  }  
+  }
 }
 
 const buttonClearGrid = document.querySelector('#buttonClearGrid');
