@@ -33,6 +33,9 @@ function userSetGridSize() {
   if (rows > 100) {
     alert('Maximum size is 100 x 100');
     return;
+  } else if (rows < 1) {
+    alert('Minimum size is 1 x 1');
+    return;
   }
   const columns = rows;
   container.textContent = ''; // clears the contents of the container
