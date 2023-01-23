@@ -30,16 +30,14 @@ function createGrid(rows, columns) {
 function userSetGridSize() {
   const rows = prompt('How large would you like your grid to be? ' +
   '(Maximum size is 100 x 100)');
-  if (rows > 100) {
-    alert('Maximum size is 100 x 100');
-    return;
-  } else if (rows < 1) {
-    alert('Minimum size is 1 x 1');
+  if (rows <= 100 && rows > 0) {
+    const columns = rows;
+    container.textContent = ''; // clears the contents of the container
+    createGrid(rows, columns);
+  } else {
+    alert('Maximum size is 100 x 100, Minimum size is 1 x 1');
     return;
   }
-  const columns = rows;
-  container.textContent = ''; // clears the contents of the container
-  createGrid(rows, columns);
 }
 
 // create grid button functionality
