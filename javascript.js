@@ -92,7 +92,7 @@ document.addEventListener('mouseover', function(e) {
   /**
   * @return {string} rgb value set to a darker shade
  */
-  function returnDarkerShade() {
+  function returnDarkerShade() { // TODO this does not make the current square darker, it goes darker for every square colored
     shade = shade - 1;
     r = shade;
     g = shade;
