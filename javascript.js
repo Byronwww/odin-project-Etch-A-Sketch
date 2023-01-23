@@ -73,14 +73,28 @@ document.addEventListener('mouseover', function(e) {
     if (colourMode =='shading') {
       currentSquare.style.backgroundColor = returnDarkerShade();
     }
+    if (colourMode =='classic') {
+      currentSquare.style.backgroundColor = returnBlack();
+    }
     if (colourMode =='eraser') {
       currentSquare.style.backgroundColor = returnEraser();
     }
   }
 
   /**
-  * @return {string} rgb value set to a darker shade
- */
+  * @return {string} rgb value set to black
+  */
+  function returnBlack() {
+    const r = 0;
+    const g = 0;
+    const b = 0;
+    const returnString = 'rgb('+ r + ','+ g + ', ' + b + ')';
+    return returnString;
+  }
+
+  /**
+  * @return {string} rgb value set to white
+  */
   function returnEraser() {
     const r = 255;
     const g = 255;
@@ -91,7 +105,7 @@ document.addEventListener('mouseover', function(e) {
 
   /**
   * @return {string} rgb value set to a darker shade
- */
+  */
   function returnDarkerShade() { // TODO this does not make the current square darker, it goes darker for every square colored
     shade = shade - 1;
     r = shade;
@@ -148,6 +162,13 @@ const buttonModeSelectShading =
 document.querySelector('#buttonModeSelectShading');
 buttonModeSelectShading.addEventListener('click', function() {
   modeSelector('shading');
+});
+
+// Classic Mode button
+const buttonModeSelectClassic =
+document.querySelector('#buttonModeSelectClassic');
+buttonModeSelectClassic.addEventListener('click', function() {
+  modeSelector('classic');
 });
 
 // Eraser Mode button
