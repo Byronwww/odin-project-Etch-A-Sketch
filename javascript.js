@@ -51,7 +51,7 @@ document.addEventListener('mouseover', function(e) {
   const currentSquareString = String(e.target.className);
   currentSquare = e.target;
   if (currentSquareString == 'column') {
-    if (colourMode == 'rainbow' ) {
+    if (colourMode == 'rainbow') {
       currentSquare.style.backgroundColor = returnRGBColor();
     }
   }
@@ -97,13 +97,15 @@ buttonClearGrid.addEventListener('click', clearGrid);
 /** Sets the colouring in mode
   * @param {string} mode rainbow
   */
-function modeSelector() {
-  colourMode = 'rainbow';
+function modeSelector(mode) {
+  colourMode = mode;
   console.log('colourMode: ' + colourMode);
 }
 
 
 const buttonModeSelectRainbow =
 document.querySelector('#buttonModeSelectRainbow');
-buttonModeSelectRainbow.addEventListener('click', modeSelector);
+buttonModeSelectRainbow.addEventListener('click', function() {
+  modeSelector('rainbow');
+});
 
