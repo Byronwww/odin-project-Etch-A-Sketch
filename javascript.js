@@ -73,6 +73,20 @@ document.addEventListener('mouseover', function(e) {
     if (colourMode =='shading') {
       currentSquare.style.backgroundColor = returnDarkerShade();
     }
+    if (colourMode =='eraser') {
+      currentSquare.style.backgroundColor = returnEraser();
+    }
+  }
+
+  /**
+  * @return {string} rgb value set to a darker shade
+ */
+  function returnEraser() {
+    const r = 255;
+    const g = 255;
+    const b = 255;
+    const returnString = 'rgb('+ r + ','+ g + ', ' + b + ')';
+    return returnString;
   }
 
   /**
@@ -83,7 +97,6 @@ document.addEventListener('mouseover', function(e) {
     r = shade;
     g = shade;
     b = shade;
-    console.log(r);
     const returnString = 'rgb('+ r + ','+ g + ', ' + b + ')';
     return returnString;
   }
@@ -135,6 +148,13 @@ const buttonModeSelectShading =
 document.querySelector('#buttonModeSelectShading');
 buttonModeSelectShading.addEventListener('click', function() {
   modeSelector('shading');
+});
+
+// Eraser Mode button
+const buttonModeSelectEraser =
+document.querySelector('#buttonModeSelectEraser');
+buttonModeSelectEraser.addEventListener('click', function() {
+  modeSelector('eraser');
 });
 
 
