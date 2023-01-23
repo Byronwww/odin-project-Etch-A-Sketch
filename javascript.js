@@ -1,6 +1,7 @@
 // creates the initial grid on page load
 const startRows = 10;
 const startColumns = 10;
+let colourMode = '';
 createGrid(startRows, startColumns);
 
 /**
@@ -49,9 +50,12 @@ buttonCreateGrid.addEventListener('click', userSetGridSize);
 document.addEventListener('mouseover', function(e) {
   const currentSquareString = String(e.target.className);
   currentSquare = e.target;
-  if (currentSquareString == 'column' ) {
-    currentSquare.style.backgroundColor = returnRGBColor();
+  if (currentSquareString == 'column') {
+    if (colourMode == 'rainbow' ) {
+      currentSquare.style.backgroundColor = returnRGBColor();
+    }
   }
+
 
   /**
    * Provides a random RGB color value in the format of rgb(x,y,z)
@@ -88,4 +92,18 @@ function clearGrid() {
 
 const buttonClearGrid = document.querySelector('#buttonClearGrid');
 buttonClearGrid.addEventListener('click', clearGrid);
+
+// Rainbow Mode button
+/** Sets the colouring in mode
+  * @param {string} mode rainbow
+  */
+function modeSelector() {
+  colourMode = 'rainbow';
+  console.log('colourMode: ' + colourMode);
+}
+
+
+const buttonModeSelectRainbow =
+document.querySelector('#buttonModeSelectRainbow');
+buttonModeSelectRainbow.addEventListener('click', modeSelector);
 
