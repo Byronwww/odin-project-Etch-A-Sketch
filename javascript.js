@@ -55,7 +55,7 @@ document.addEventListener('mouseover', function(e) {
 
   /**
    * Provides a random RGB color value in the format of rgb(x,y,z)
-   * @return {string} a random color value in hexedecimal format
+   * @return {string} a random color value in hexadecimal format
    */
   function returnRGBColor() {
     const r = random256();
