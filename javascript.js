@@ -1,7 +1,22 @@
-// creates the initial grid on page load
-const startRows = 10;
-const startColumns = 10;
+let startRows = '';
+let startColumns = '';
 let colourMode = '';
+let shade = '';
+
+
+init();
+
+/**
+ * Initialization function to set the initial values of the program and
+ * to reset variables to these initial values
+ */
+function init() {
+  startRows = 10;
+  startColumns = 10;
+  shade = 240;
+}
+
+// creates the initial grid on page load
 createGrid(startRows, startColumns);
 
 /**
@@ -10,8 +25,9 @@ createGrid(startRows, startColumns);
  * @param {int} columns How many columns to create.
  */
 function createGrid(rows, columns) {
+  const container = document.querySelector('#container');
+  container.innerHTML = '';
   for (i = 0; i < rows; i++) {
-    const container = document.querySelector('#container');
     const row = document.createElement('div');
     row.classList.add('row');
     row.setAttribute('id', 'Row' + i);
@@ -29,12 +45,12 @@ function createGrid(rows, columns) {
  * Prompts user for how many rows and columns the grid should contain.
  */
 function userSetGridSize() {
-  const rows = prompt('How large would you like your grid to be? ' +
+  startRows = prompt('How large would you like your grid to be? ' +
   '(Maximum size is 100 x 100)');
-  if (rows <= 100 && rows > 0) {
-    const columns = rows;
+  if (startRows <= 100 && startRows > 0) {
+    startColumns = startRows;
     container.textContent = ''; // clears the contents of the container
-    createGrid(rows, columns);
+    createGrid(startRows, startColumns);
   } else {
     alert('Maximum size is 100 x 100, Minimum size is 1 x 1');
     return;
@@ -52,16 +68,31 @@ document.addEventListener('mouseover', function(e) {
   currentSquare = e.target;
   if (currentSquareString == 'column') {
     if (colourMode == 'rainbow') {
-      currentSquare.style.backgroundColor = returnRGBColor();
+      currentSquare.style.backgroundColor = returnRandomRGBColor();
+    }
+    if (colourMode =='shading') {
+      currentSquare.style.backgroundColor = returnDarkerShade();
     }
   }
 
+  /**
+  * @return {string} rgb value set to a darker shade
+ */
+  function returnDarkerShade() {
+    shade = shade - 1;
+    r = shade;
+    g = shade;
+    b = shade;
+    console.log(r);
+    const returnString = 'rgb('+ r + ','+ g + ', ' + b + ')';
+    return returnString;
+  }
 
   /**
    * Provides a random RGB color value in the format of rgb(x,y,z)
    * @return {string} a random color value in hexadecimal format
    */
-  function returnRGBColor() {
+  function returnRandomRGBColor() {
     const r = random256();
     const g = random256();
     const b = random256();
@@ -79,21 +110,11 @@ document.addEventListener('mouseover', function(e) {
   }
 });
 
-
-/**
- * Clear Grid functionality
- * */
-function clearGrid() {
-  const allSquares = document.getElementsByClassName('column');
-  for (i = 0; i < allSquares.length; i++) {
-    allSquares[i].style.backgroundColor = 'rgb(256,256,256)';
-  }
-}
-
 const buttonClearGrid = document.querySelector('#buttonClearGrid');
-buttonClearGrid.addEventListener('click', clearGrid);
+buttonClearGrid.addEventListener('click', function() {
+  createGrid(startRows, startColumns);
+});
 
-// Rainbow Mode button
 /** Sets the colouring in mode
   * @param {string} mode rainbow
   */
@@ -102,10 +123,18 @@ function modeSelector(mode) {
   console.log('colourMode: ' + colourMode);
 }
 
-
+// Rainbow Mode button
 const buttonModeSelectRainbow =
 document.querySelector('#buttonModeSelectRainbow');
 buttonModeSelectRainbow.addEventListener('click', function() {
   modeSelector('rainbow');
 });
+
+// Shading Mode button
+const buttonModeSelectShading =
+document.querySelector('#buttonModeSelectShading');
+buttonModeSelectShading.addEventListener('click', function() {
+  modeSelector('shading');
+});
+
 
