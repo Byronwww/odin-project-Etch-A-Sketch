@@ -1,10 +1,44 @@
+
+.pagebody{
+  display: flex;
+  justify-content: center;
+}
+
+.buttons{
+  display:flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  flex-basis: 40%; 
+}
+
+.buttonsRight{
+  display:flex;
+  align-items:flex-start;
+  justify-content: center;
+  flex-direction: column;
+  flex-basis: 40%; 
+}
+
+button{
+  margin: 5px;
+  border-radius: 5px;
+  background-color: #F3E8EE;
+  color: #2E2C2F;
+  font-weight: bold;
+  
+}
+
 .container{      
     display: flex;    
-    flex-direction: column;   
+    flex-direction: column; 
+    flex-shrink: 0;  
     margin: auto; 
     height:900px;
     width:900px;
-}
+    border: 0.01px solid #475B63;
+    border-radius:5px
+  }
 
 .row {        
     display: flex;    
@@ -15,7 +49,14 @@
 .column {            
     display: flex;
     flex: 1;    
-    border: 0.01px solid black;
+    border: 0.01px solid #475B63;
+    border-radius:1px
+  }
+
+  h1{
+    font-family: sans-serif;
+    text-align: center;
+    color: #475B63;    
   }
 
 
