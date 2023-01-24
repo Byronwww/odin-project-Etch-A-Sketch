@@ -106,19 +106,21 @@ document.addEventListener('mouseover', function(e) {
   */
   function returnDarkerShade() {
     currentRGB = currentSquare.style.backgroundColor;
-    console.log('Current RGB: ' + currentRGB);
     if (currentRGB == '') {
       currentSquare.style.backgroundColor = returnEraser();
     } else {
       currentRGBSliced = currentRGB.slice(4, -1);
-      console.log('Current RGB Sliced: ' + currentRGBSliced);
       arrayRGB = currentRGBSliced.split(',');
-      console.log('arrayRGB: ' + arrayRGB);
-      r = arrayRGB[0]-=20;
-      g = arrayRGB[1]-=20;
-      b = arrayRGB[2]-=20;
+      if (arrayRGB[0] > 0) {
+        arrayRGB[0]-=5;
+      }
+      if (arrayRGB[1] > 0) {
+        arrayRGB[1]-=5;
+      }
+      if (arrayRGB[2] > 0) {
+        arrayRGB[2]-=5;
+      }
       const rgbReturn = 'rgb('+ arrayRGB + ')';
-      console.log('rgbReturn: '+ rgbReturn);
       currentSquare.style.backgroundColor = rgbReturn;
     }
   }
