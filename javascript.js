@@ -1,8 +1,6 @@
 let startRows = '';
 let startColumns = '';
 let colourMode = '';
-let shade = '';
-
 
 init();
 
@@ -104,15 +102,25 @@ document.addEventListener('mouseover', function(e) {
   }
 
   /**
-  * @return {string} rgb value set to a darker shade
+  * makes the currentSquare progressively darker
   */
-  function returnDarkerShade() { // TODO this does not make the current square darker, it goes darker for every square colored
-    shade = shade - 1;
-    r = shade;
-    g = shade;
-    b = shade;
-    const returnString = 'rgb('+ r + ','+ g + ', ' + b + ')';
-    return returnString;
+  function returnDarkerShade() {
+    currentRGB = currentSquare.style.backgroundColor;
+    console.log('Current RGB: ' + currentRGB);
+    if (currentRGB == '') {
+      currentSquare.style.backgroundColor = returnEraser();
+    } else {
+      currentRGBSliced = currentRGB.slice(4, -1);
+      console.log('Current RGB Sliced: ' + currentRGBSliced);
+      arrayRGB = currentRGBSliced.split(',');
+      console.log('arrayRGB: ' + arrayRGB);
+      r = arrayRGB[0]-=20;
+      g = arrayRGB[1]-=20;
+      b = arrayRGB[2]-=20;
+      const rgbReturn = 'rgb('+ arrayRGB + ')';
+      console.log('rgbReturn: '+ rgbReturn);
+      currentSquare.style.backgroundColor = rgbReturn;
+    }
   }
 
   /**
