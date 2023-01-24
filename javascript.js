@@ -55,10 +55,6 @@ function userSetGridSize() {
   }
 }
 
-// create grid button functionality
-const buttonCreateGrid = document.querySelector('#buttonCreateGrid');
-buttonCreateGrid.addEventListener('click', userSetGridSize);
-
 
 // color grid square under mouse functionality
 document.addEventListener('mouseover', function(e) {
@@ -147,10 +143,6 @@ document.addEventListener('mouseover', function(e) {
   }
 });
 
-const buttonClearGrid = document.querySelector('#buttonClearGrid');
-buttonClearGrid.addEventListener('click', function() {
-  createGrid(startRows, startColumns);
-});
 
 /** Sets the colouring in mode
   * @param {string} mode rainbow
@@ -159,6 +151,16 @@ function modeSelector(mode) {
   colourMode = mode;
   console.log('colourMode: ' + colourMode);
 }
+
+// Create Grid button
+const buttonCreateGrid = document.querySelector('#buttonCreateGrid');
+buttonCreateGrid.addEventListener('click', userSetGridSize);
+
+// Clear Grid button
+const buttonClearGrid = document.querySelector('#buttonClearGrid');
+buttonClearGrid.addEventListener('click', function() {
+  createGrid(startRows, startColumns);
+});
 
 // Rainbow Mode button
 const buttonModeSelectRainbow =
