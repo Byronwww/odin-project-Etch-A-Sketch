@@ -1,5 +1,7 @@
 let startRows = '';
 let startColumns = '';
+const initialStartRows = 10;
+const initialStartColumns = 10;
 let colourMode = '';
 
 init();
@@ -9,9 +11,8 @@ init();
  * to reset variables to these initial values
  */
 function init() {
-  startRows = 10;
-  startColumns = 10;
-  shade = 240;
+  startRows = initialStartRows;
+  startColumns = initialStartColumns;
 }
 
 // creates the initial grid on page load
@@ -45,7 +46,7 @@ function createGrid(rows, columns) {
 function userSetGridSize() {
   startRows = prompt('How large would you like your grid to be? ' +
   '(Maximum size is 100 x 100)', '10');
-  if (startRows <= 100 && startRows > 0) {
+  if (startRows <= 100 && startRows >= 10) {
     startColumns = startRows;
     container.textContent = ''; // clears the contents of the container
     createGrid(startRows, startColumns);
@@ -53,10 +54,22 @@ function userSetGridSize() {
     return;
   } else {
     alert('Maximum size is 100 x 100, Minimum size is 1 x 1');
+    startRows=initialStartRows;
     return;
   }
 }
 
+/**
+ * displays warning message before clearing the grid
+ */
+function clearGrid() {
+  if (confirm('Are you sure you want to reset the grid?' +
+    ' All coloured squares will be erased') == true) {
+    createGrid(startRows, startColumns);
+  } else {
+    return;
+  }
+}
 
 // color grid square under mouse functionality
 document.addEventListener('mouseover', function(e) {
@@ -160,7 +173,7 @@ buttonCreateGrid.addEventListener('click', userSetGridSize);
 // Clear Grid button
 const buttonClearGrid = document.querySelector('#buttonClearGrid');
 buttonClearGrid.addEventListener('click', function() {
-  createGrid(startRows, startColumns);
+  clearGrid();
 });
 
 // Rainbow Mode button
