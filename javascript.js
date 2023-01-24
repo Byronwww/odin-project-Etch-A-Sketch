@@ -44,11 +44,13 @@ function createGrid(rows, columns) {
  */
 function userSetGridSize() {
   startRows = prompt('How large would you like your grid to be? ' +
-  '(Maximum size is 100 x 100)');
+  '(Maximum size is 100 x 100)', '10');
   if (startRows <= 100 && startRows > 0) {
     startColumns = startRows;
     container.textContent = ''; // clears the contents of the container
     createGrid(startRows, startColumns);
+  } else if (startRows = NULL) {
+    return;
   } else {
     alert('Maximum size is 100 x 100, Minimum size is 1 x 1');
     return;
