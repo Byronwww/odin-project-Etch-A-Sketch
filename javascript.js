@@ -151,7 +151,6 @@ document.addEventListener('mouseover', function(e) {
   */
 function modeSelector(mode) {
   colourMode = mode;
-  console.log('colourMode: ' + colourMode);
 }
 
 // Create Grid button
