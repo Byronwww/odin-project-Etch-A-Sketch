@@ -49,7 +49,7 @@ function userSetGridSize() {
     startColumns = startRows;
     container.textContent = ''; // clears the contents of the container
     createGrid(startRows, startColumns);
-  } else if (startRows = NULL) {
+  } else if (startRows == null) {
     return;
   } else {
     alert('Maximum size is 100 x 100, Minimum size is 1 x 1');
