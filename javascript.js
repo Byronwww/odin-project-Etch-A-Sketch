@@ -112,13 +112,13 @@ document.addEventListener('mouseover', function(e) {
       currentRGBSliced = currentRGB.slice(4, -1);
       arrayRGB = currentRGBSliced.split(',');
       if (arrayRGB[0] > 0) {
-        arrayRGB[0]-=5;
+        arrayRGB[0]-=15;
       }
       if (arrayRGB[1] > 0) {
-        arrayRGB[1]-=5;
+        arrayRGB[1]-=15;
       }
       if (arrayRGB[2] > 0) {
-        arrayRGB[2]-=5;
+        arrayRGB[2]-=15;
       }
       const rgbReturn = 'rgb('+ arrayRGB + ')';
       currentSquare.style.backgroundColor = rgbReturn;
