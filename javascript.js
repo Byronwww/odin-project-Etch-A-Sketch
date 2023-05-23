@@ -53,7 +53,7 @@ function userSetGridSize() {
   } else if (startRows == null) {
     return;
   } else {
-    alert('Maximum size is 100 x 100, Minimum size is 1 x 1');
+    alert('Maximum size is 100 x 100, Minimum size is 10 x 10');
     startRows=initialStartRows;
     return;
   }
